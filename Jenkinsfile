@@ -13,6 +13,12 @@ pipeline {
                 sh 'curl -s http://localhost:8081 || true'
             }
         }
+        stage('Deploy') {
+            steps {
+                sh 'docker rm -f myapp-prod || true'
+                sh 'docker run -d --name myapp-prod -p 8082:8080 myapp:latest'
+            }
+        }
         stage('Cleanup') {
             steps {
                 sh 'docker rm -f myapp-test || true'
