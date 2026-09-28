@@ -5,7 +5,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-Type', 'text/html; charset=utf-8')
         self.end_headers()
-        self.wfile.write('<h1>Hello from my Docker App!</h1>'.encode())
+        self.wfile.write('<h1>Hello from my Docker App v2!</h1>'.encode())
 
 if __name__ == '__main__':
     print('App listening on 8080')
